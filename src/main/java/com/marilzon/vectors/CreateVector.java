@@ -1,5 +1,7 @@
 package com.marilzon.vectors;
 
+import java.util.Arrays;
+
 /**
  *
  * @author marilzon
@@ -13,11 +15,17 @@ public class CreateVector {
             myVector.AddValueInVector("marilzon");
             myVector.AddValueInVector("de");
             myVector.AddValueInVector("sousa");
+
         } catch (Exception e) {
             throw new Exception("Internal Exception error! ", e);
         }
 
         System.out.println(myVector);
+        System.out.println(myVector.SizeOfThis());
+
+        System.out.println(myVector.getVectorValue(0));
+        System.out.println(myVector.getVectorValue(1));
+        System.out.println(myVector.getVectorValue(2));
     }
 
     public String[] elements;
@@ -29,6 +37,10 @@ public class CreateVector {
     }
 
     public void AddValueInVector(String element) {
+        if (element == null) {
+            return;
+        }
+
         if (this.sizeOfVector < this.elements.length) {
             this.elements[this.sizeOfVector] = element;
             this.sizeOfVector++;
@@ -37,8 +49,20 @@ public class CreateVector {
         }
     }
 
+    public int SizeOfThis() {
+        return this.sizeOfVector;
+    }
+
+    public String getVectorValue(int index) {
+        
+        if (index < 0 || index >= sizeOfVector) {
+            throw new IllegalArgumentException("This index does not exists!");
+        }
+        return (index + ": " + elements[index]);
+    }
+
     @Override
     public String toString() {
-        return java.util.Arrays.toString(elements);
+        return Arrays.toString(elements);
     }
 }
