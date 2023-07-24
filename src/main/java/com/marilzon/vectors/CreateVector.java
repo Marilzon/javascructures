@@ -1,5 +1,9 @@
-package com.datastructuries;
+package com.marilzon.vectors;
 
+/**
+ *
+ * @author marilzon
+ */
 public class CreateVector {
 
     public static void main(String[] args) throws Exception {
