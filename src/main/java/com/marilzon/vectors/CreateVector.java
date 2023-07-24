@@ -26,6 +26,10 @@ public class CreateVector {
         System.out.println(myVector.getVectorValue(0));
         System.out.println(myVector.getVectorValue(1));
         System.out.println(myVector.getVectorValue(2));
+        
+        System.out.println(myVector.IndexOfInVector("marilzon"));
+        System.out.println(myVector.IndexOfInVector("de"));
+        System.out.println(myVector.IndexOfInVector("s"));
     }
 
     public String[] elements;
@@ -59,6 +63,15 @@ public class CreateVector {
             throw new IllegalArgumentException("This index does not exists!");
         }
         return (index + ": " + elements[index]);
+    }
+    
+    public int IndexOfInVector(String element) {
+        for (int i = 0; i < this.sizeOfVector; i++) {
+            if (this.elements[i].equalsIgnoreCase(element)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
